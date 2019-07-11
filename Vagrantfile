@@ -35,6 +35,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.1/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -86,6 +92,12 @@ routers = [
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0010.00
        redistribute ipv4 connected level-1
+      !
+      EOF
+
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.2/32
       !
       EOF
 
@@ -143,6 +155,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.3/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -194,6 +212,12 @@ routers = [
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0100.00
        redistribute ipv4 connected level-1
+      !
+      EOF
+
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.4/32
       !
       EOF
 
@@ -267,6 +291,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.5/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -321,6 +351,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.6/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -356,6 +392,12 @@ routers = [
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.1000.00
        redistribute ipv4 connected level-1
+      !
+      EOF
+
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.7/32
       !
       EOF
 
@@ -413,6 +455,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.8/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -467,6 +515,12 @@ routers = [
       !
       EOF
 
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.9/32
+      !
+      EOF
+
       systemctl restart frr
     SCRIPT
   },
@@ -502,6 +556,12 @@ routers = [
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.4000.00
        redistribute ipv4 connected level-1
+      !
+      EOF
+
+      cat >> /etc/frr/zebra.conf <<EOF
+      interface lo
+       ip address 10.254.254.10/32
       !
       EOF
 
