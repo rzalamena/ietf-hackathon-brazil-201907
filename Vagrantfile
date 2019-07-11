@@ -588,9 +588,19 @@ Vagrant.configure('2') do |config|
 
       # Virtual Box settings.
       node.vm.provider :virtualbox do |provider|
+        # Use virt interfaces to help reduce CPU usage on emulation.
         provider.default_nic_type = 'virtio'
+
+        # Cheap copy VM disk.
         provider.linked_clone = true
+
+        # Attempt to avoid utilizing all host CPU cycles.
+        provider.cpus = 1
         provider.customize ['modifyvm', :id, '--cpuexecutioncap', '50']
+
+        # Select the amount of memory the VMs will have.
+        provider.memory = 192
+        #provider.memory = 256
       end
 
       # VM settings.
