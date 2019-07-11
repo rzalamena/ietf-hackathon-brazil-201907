@@ -1,0 +1,5 @@
+# vagrant operational data.
+/.vagrant
+
+# Swap files.
+*.*.swp
