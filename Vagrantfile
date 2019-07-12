@@ -239,7 +239,7 @@ routers = [
       },
       {
         net: 'r4-r5',
-        address: '10.3.2.10/24'
+        address: '10.3.1.20/24'
       },
       {
         net: 'r5-r6',
