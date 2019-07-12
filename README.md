@@ -53,3 +53,8 @@ The following applications are required:
     `sudo su -`;
   * Alternatively you can log in into the routers with
     `vagrant ssh r<number>`;
+
+
+## Topology
+
+![Network Topology](topology.png)
