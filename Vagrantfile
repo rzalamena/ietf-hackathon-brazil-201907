@@ -16,6 +16,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -68,6 +69,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -128,6 +130,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -188,6 +191,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -256,6 +260,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -324,6 +329,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -376,6 +382,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -428,6 +435,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -488,6 +496,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
@@ -540,6 +549,7 @@ routers = [
     ],
     config: <<~SCRIPT
       echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
