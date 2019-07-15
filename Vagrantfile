@@ -12,6 +12,10 @@ routers = [
       {
         net: 'r1-r3',
         address: '10.1.2.10/24'
+      },
+      {
+        net: 'h1-r1',
+        address: '172.16.1.10/24'
       }
     ],
     config: <<~SCRIPT
@@ -378,6 +382,10 @@ routers = [
       {
         net: 'r7-r8',
         address: '10.4.1.10/24'
+      },
+      {
+        net: 'h2-r7',
+        address: '172.16.7.10/24'
       }
     ],
     config: <<~SCRIPT
@@ -431,6 +439,10 @@ routers = [
       {
         net: 'r8-r9',
         address: '10.4.2.10/24'
+      },
+      {
+        net: 'h2-r8',
+        address: '172.16.8.10/24'
       }
     ],
     config: <<~SCRIPT
@@ -492,6 +504,10 @@ routers = [
       {
         net: 'r9-r10',
         address: '10.4.3.10/24'
+      },
+      {
+        net: 'h2-r9',
+        address: '172.16.9.10/24'
       }
     ],
     config: <<~SCRIPT
@@ -545,6 +561,10 @@ routers = [
       {
         net: 'r9-r10',
         address: '10.4.3.20/24'
+      },
+      {
+        net: 'h2-r10',
+        address: '172.16.10.10/24'
       }
     ],
     config: <<~SCRIPT
@@ -579,6 +599,55 @@ routers = [
     SCRIPT
   }
 ]
+
+hosts = [
+  {
+    hostname: 'h1',
+    ssh_port: 22101,
+    interfaces: [
+      {
+        net: 'h1-r1',
+        address: '172.16.1.20/24',
+      }
+    ],
+    config: <<~SCRIPT
+      echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
+      hostname "$1"
+
+      apt install -y tcpreplay
+    SCRIPT
+  },
+
+  {
+    hostname: 'h2',
+    ssh_port: 22102,
+    interfaces: [
+      {
+        net: 'h2-r7',
+        address: '172.16.7.20/24',
+      },
+      {
+        net: 'h2-r8',
+        address: '172.16.8.20/24',
+      },
+      {
+        net: 'h2-r9',
+        address: '172.16.9.20/24',
+      },
+      {
+        net: 'h2-r10',
+        address: '172.16.10.20/24',
+      }
+    ],
+    config: <<~SCRIPT
+      echo "$1" > /etc/hostname
+      echo "127.0.1.1 $1" >> /etc/hosts
+      hostname "$1"
+    SCRIPT
+  }
+]
+
 
 Vagrant.configure('2') do |config|
   # Machines setup.
@@ -624,6 +693,48 @@ Vagrant.configure('2') do |config|
         node.vm.provision :shell do |script|
           script.inline = router[:config]
           script.args = [router[:hostname]]
+        end
+      end
+    end
+  end
+
+  # Configure all hosts.
+  hosts.each do |host|
+    config.vm.define host[:hostname] do |node|
+      # Configure network interfaces.
+      host[:interfaces].each do |interface|
+        node.vm.network :private_network,
+          ip: interface[:address],
+          virtualbox__intnet: interface[:net]
+      end
+
+      # Virtual Box settings.
+      node.vm.provider :virtualbox do |provider|
+        # Use virt interfaces to help reduce CPU usage on emulation.
+        provider.default_nic_type = 'virtio'
+
+        # Cheap copy VM disk.
+        provider.linked_clone = true
+
+        # Attempt to avoid utilizing all host CPU cycles.
+        provider.cpus = 1
+        provider.customize ['modifyvm', :id, '--cpuexecutioncap', '50']
+
+        # Select the amount of memory the VMs will have.
+        provider.memory = 200
+      end
+
+      # VM settings.
+      if host[:ssh_port]
+        node.vm.network :forwarded_port, protocol: :tcp,
+          guest: 22, host: host[:ssh_port]
+      end
+
+      # Apply provisions / configuration script.
+      if host[:config]
+        node.vm.provision :shell do |script|
+          script.inline = host[:config]
+          script.args = [host[:hostname]]
         end
       end
     end
