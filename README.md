@@ -17,7 +17,7 @@ The minimal hardware specification in order to run the topology:
 The virtualization software is portable and should run on a few OSes:
 
   * Linux;
-  * Windows;
+  * Windows; PowerShell 3 or later
   * FreeBSD;
   * Mac OS X;
   * Solaris;
