@@ -68,3 +68,46 @@ The following applications are required:
 ## Topology
 
 ![Network Topology](topology.png)
+
+
+## Troubleshooting
+
+ * One of the VMs failed to boot or configure
+
+       # Assuming VM h2 (host 2) failed for some reason or you want to
+       # reset it, then you can do the following:
+
+       # Destroy the VM
+       vagrant destroy -f h2
+
+       # Re-deploy it
+       vagrant up h2
+
+ * I want to manually ssh into the VM
+
+       # Look up the `ssh_port` in the `Vagrantfile`.
+       #
+       # Example: ssh to host 1, ssh_port = 22101
+       ssh -p 22101 vagrant@localhost
+
+       # Password is `vagrant` and root can be accessed with `sudo`.
+
+ * Testing host 1 or host 2 connectivity
+
+       # Testing conectivity between host 1 and router 1.
+       sudo ip vrf exec testnet ping 172.16.1.10
+
+       # Testing connectivity between host 1 and host 2 (across the network).
+       sudo ip vrf exec testnet traceroute -n 172.16.7.20
+       sudo ip vrf exec testnet traceroute -n 172.16.8.20
+       sudo ip vrf exec testnet traceroute -n 172.16.9.20
+       sudo ip vrf exec testnet traceroute -n 172.16.10.20
+
+       # Testing conectivity between host 2 and routers 7, 8, 9 and 10.
+       sudo ip vrf exec r7-vrf ping 172.16.7.10
+       sudo ip vrf exec r8-vrf ping 172.16.8.10
+       sudo ip vrf exec r9-vrf ping 172.16.9.10
+       sudo ip vrf exec r10-vrf ping 172.16.10.10
+
+       # Testing conectivity between host 2 and host 1 (across the network).
+       sudo ip vrf exec r7-vrf traceroute -n 172.16.1.20
