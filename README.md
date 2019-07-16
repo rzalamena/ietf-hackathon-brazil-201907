@@ -31,7 +31,7 @@ The following applications are required:
 ## Usage
 
   1. Install VirtualBox;
-  2. Install Vagrant;
+  2. Install Vagrant (use the site installer even on Linux);
   3. Download the vagrant box for the IETF hackathon exercise;
   4. Download or clone the IETF hackathon exercise repository (where
      this file is located);
