@@ -29,10 +29,12 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0001.00
@@ -82,18 +84,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0010.00
@@ -143,18 +149,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0020.00
@@ -204,18 +214,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0100.00
@@ -273,26 +287,32 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s17
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s18
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0200.00
@@ -342,18 +362,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.0300.00
@@ -399,10 +423,12 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.1000.00
@@ -456,18 +482,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.2000.00
@@ -521,18 +551,22 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.3000.00
@@ -578,10 +612,12 @@ routers = [
       interface enp0s8
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
        isis circuit-type level-1
+       isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.4000.00
