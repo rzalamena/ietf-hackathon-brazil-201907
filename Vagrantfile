@@ -644,6 +644,31 @@ hosts = [
       echo "$1" > /etc/hostname
       echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
+
+      cat > /home/vagrant/bin/network-setup.sh <<EOF
+      sudo ip link add r7-vrf type vrf table 7
+      sudo ip link add r8-vrf type vrf table 8
+      sudo ip link add r9-vrf type vrf table 9
+      sudo ip link add r10-vrf type vrf table 10
+
+      sudo ip link set r7-vrf up
+      sudo ip link set r8-vrf up
+      sudo ip link set r9-vrf up
+      sudo ip link set r10-vrf up
+
+      sudo ip link set enp0s8 vrf r7-vrf
+      sudo ip link set enp0s9 vrf r8-vrf
+      sudo ip link set enp0s10 vrf r9-vrf
+      sudo ip link set enp0s16 vrf r10-vrf
+
+      sudo ip route add default via 172.16.7.10 vrf r7-vrf
+      sudo ip route add default via 172.16.8.10 vrf r8-vrf
+      sudo ip route add default via 172.16.9.10 vrf r9-vrf
+      sudo ip route add default via 172.16.10.10 vrf r10-vrf
+      EOF
+
+      chmod a+x /home/vagrant/bin/network-setup.sh
+      sudo bash /home/vagrant/bin/network-setup.sh
     SCRIPT
   }
 ]
