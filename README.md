@@ -32,10 +32,12 @@ The following applications are required:
 
   1. Install VirtualBox;
   2. Install Vagrant (use the site installer even on Linux);
-  3. Download the vagrant box for the IETF hackathon exercise;
-  4. Download or clone the IETF hackathon exercise repository (where
-     this file is located);
-  5. Deploy the topology with vagrant:
+  3. Set up a new 'exercise' folder for all the download files;
+  4. Download the vagrant box file for the IETF hackathon exercise
+      from http://br-hackathon.netdef.org/ietf-hackathon-br-201907.box
+  5. Download or clone the IETF hackathon exercise repository (where
+     this file is located) to the same exercise folder;
+  6. Deploy the topology with vagrant:
 
          # Clone the git repo.
          git clone \
@@ -53,7 +55,7 @@ The following applications are required:
          # Deploy the topology with vagrant.
          vagrant up
 
-  6. Do the exercises;
+  7. Do the exercises;
 
 
 ## Notes
