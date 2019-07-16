@@ -616,6 +616,19 @@ hosts = [
       hostname "$1"
 
       apt install -y tcpreplay
+
+      cat > /home/vagrant/bin/network-setup.sh <<EOF
+      sudo ip link add testnet type vrf table 10
+
+      sudo ip link set testnet up
+
+      sudo ip link set enp0s8 vrf testnet
+
+      sudo ip route add default via 172.16.1.10 vrf testnet
+      EOF
+
+      chmod a+x /home/vagrant/bin/network-setup.sh
+      sudo bash /home/vagrant/bin/network-setup.sh
     SCRIPT
   },
 
