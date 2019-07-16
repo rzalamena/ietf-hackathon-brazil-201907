@@ -37,8 +37,18 @@ The following applications are required:
      this file is located);
   5. Deploy the topology with vagrant:
 
+         # Clone the git repo.
+         git clone \
+           https://github.com/rzalamena/ietf-hackathon-brazil-201907.git
+
          # Go to the appropriated directory.
-         cd ietf-hackathon-br-201907;
+         cd ietf-hackathon-brazil-201907
+
+         # Add the box to our local repository.
+         vagrant box add --name ietf-hackathon-br-201907 \
+           http://br-hackathon.netdef.org/ietf-hackathon-br-201907.box
+         # or
+         vagrant box add --name ietf-hackathon-br-201907 ietf-hackathon-br-201907.box
 
          # Deploy the topology with vagrant.
          vagrant up
