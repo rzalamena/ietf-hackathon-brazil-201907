@@ -82,6 +82,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -177,6 +178,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -272,6 +274,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -367,6 +370,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -483,6 +487,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -578,6 +583,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -645,7 +651,7 @@ routers = [
 
       cat >> /etc/frr/staticd.conf <<EOF
       !
-      ip route 10.119.0.0/16 172.16.7.20
+      ip route 10.129.0.0/16 172.16.7.20
       !
       EOF
 
@@ -659,6 +665,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -747,7 +754,7 @@ routers = [
 
       cat >> /etc/frr/staticd.conf <<EOF
       !
-      ip route 10.119.0.0/16 172.16.8.20
+      ip route 10.129.0.0/16 172.16.8.20
       !
       EOF
 
@@ -761,6 +768,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -849,7 +857,7 @@ routers = [
 
       cat >> /etc/frr/staticd.conf <<EOF
       !
-      ip route 10.119.0.0/16 172.16.9.20
+      ip route 10.129.0.0/16 172.16.9.20
       !
       EOF
 
@@ -863,6 +871,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -929,7 +938,7 @@ routers = [
 
       cat >> /etc/frr/staticd.conf <<EOF
       !
-      ip route 10.119.0.0/16 172.16.10.20
+      ip route 10.129.0.0/16 172.16.10.20
       !
       EOF
 
@@ -943,6 +952,7 @@ routers = [
       EOF
 
       systemctl restart frr
+      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   }
 ]
