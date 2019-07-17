@@ -109,7 +109,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -248,7 +248,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -387,7 +387,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -526,7 +526,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -702,7 +702,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -841,7 +841,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -953,7 +953,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -1102,7 +1102,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -1251,7 +1251,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   },
 
@@ -1362,7 +1362,7 @@ routers = [
       EOF
 
       systemctl restart frr
-      sysrepocfg --format=xml --import=/etf/frr/isisd.xml --datastore=running frr-isisd
+      sysrepocfg --format=xml --import=/etc/frr/isisd.xml --datastore=running frr-isisd
     SCRIPT
   }
 ]
