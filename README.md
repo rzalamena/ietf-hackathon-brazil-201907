@@ -79,10 +79,10 @@ The following applications are required:
     http://br-hackathon.netdef.org/TestTraffic.pcap.gz
   * The router 1 network interface connected with host 1 has the MAC
     address of: `08:00:27:60:01:03`. \
-    When playing the test traffic you should use the following commands:
+    When playing the test traffic you should use the following commands on h1:
 
         # Download the test traffic file.
-        curl -#L http://br-hackathon.netdef.org/TestTraffic.pcap.gz
+        curl -#L http://br-hackathon.netdef.org/TestTraffic.pcap.gz --output TestTraffic.pcap.gz
 
         # Decompress it.
         gzip -d TestTraffic.pcap.gz
