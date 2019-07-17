@@ -53,8 +53,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -67,8 +67,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -164,8 +164,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -178,8 +178,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -192,8 +192,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -206,8 +206,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -303,8 +303,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -317,8 +317,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -331,8 +331,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -345,8 +345,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -442,8 +442,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -456,8 +456,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -470,8 +470,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -484,8 +484,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -590,8 +590,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -604,8 +604,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -618,8 +618,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -632,8 +632,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -646,8 +646,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -660,8 +660,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -757,8 +757,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -771,8 +771,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -785,8 +785,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -799,8 +799,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -891,8 +891,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>100</level-1>
-              <level-2>100</level-2>
+              <level-1>30</level-1>
+              <level-2>30</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -905,8 +905,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1012,8 +1012,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1026,8 +1026,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1040,8 +1040,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1054,8 +1054,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1161,8 +1161,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1175,8 +1175,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1189,8 +1189,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1203,8 +1203,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1300,8 +1300,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
@@ -1314,8 +1314,8 @@ routers = [
             <ipv4-routing>true</ipv4-routing>
             <circuit-type>level-1</circuit-type>
             <metric>
-              <level-1>200</level-1>
-              <level-2>200</level-2>
+              <level-1>60</level-1>
+              <level-2>60</level-2>
             </metric>
             <network-type>point-to-point</network-type>
           </isis>
