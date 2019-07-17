@@ -1,0 +1,282 @@
+module: frr-isisd
+  +--rw isis
+     +--rw instance* [area-tag]
+        +--rw area-tag                         string
+        +--rw is-type?                         level <level-1>
+        +--rw area-address*                    net-address
+        +--rw dynamic-hostname?                boolean <true>
+        +--rw attached?                        boolean <false>
+        +--rw overload?                        boolean <false>
+        +--rw metric-style?                    metric-style-type <wide>
+        +--rw purge-originator?                boolean <false>
+        +--rw lsp
+        |  +--rw mtu?                   uint16 <1497>
+        |  +--rw refresh-interval
+        |  |  +--rw level-1?   uint16 <900>
+        |  |  +--rw level-2?   uint16 <900>
+        |  +--rw maximum-lifetime
+        |  |  +--rw level-1?   uint16 <1200>
+        |  |  +--rw level-2?   uint16 <1200>
+        |  +--rw generation-interval
+        |     +--rw level-1?   uint16 <30>
+        |     +--rw level-2?   uint16 <30>
+        +--rw spf
+        |  +--rw ietf-backoff-delay!
+        |  |  +--rw init-delay       uint16
+        |  |  +--rw short-delay      uint16
+        |  |  +--rw long-delay       uint16
+        |  |  +--rw hold-down        uint16
+        |  |  +--rw time-to-learn    uint16
+        |  +--rw minimum-interval
+        |     +--rw level-1?   uint16 <1>
+        |     +--rw level-2?   uint16 <1>
+        +--rw area-password!
+        |  +--rw password            string
+        |  +--rw password-type       enumeration
+        |  +--rw authenticate-snp?   enumeration <none>
+        +--rw domain-password!
+        |  +--rw password            string
+        |  +--rw password-type       enumeration
+        |  +--rw authenticate-snp?   enumeration <none>
+        +--rw default-information-originate
+        |  +--rw ipv4* [level]
+        |  |  +--rw level        level
+        |  |  +--rw always?      boolean <false>
+        |  |  +--rw route-map?   string
+        |  |  +--rw metric?      uint32 <0>
+        |  +--rw ipv6* [level]
+        |     +--rw level        level
+        |     +--rw always?      boolean <false>
+        |     +--rw route-map?   string
+        |     +--rw metric?      uint32 <0>
+        +--rw redistribute
+        |  +--rw ipv4* [protocol level]
+        |  |  +--rw protocol     frr-route-types:frr-route-types-v4
+        |  |  +--rw level        level
+        |  |  +--rw route-map?   string
+        |  |  +--rw metric?      uint32 <0>
+        |  +--rw ipv6* [protocol level]
+        |     +--rw protocol     frr-route-types:frr-route-types-v6
+        |     +--rw level        level
+        |     +--rw route-map?   string
+        |     +--rw metric?      uint32 <0>
+        +--rw multi-topology
+        |  +--rw ipv4-multicast!
+        |  |  +--rw overload?   boolean <false>
+        |  +--rw ipv4-management!
+        |  |  +--rw overload?   boolean <false>
+        |  +--rw ipv6-unicast!
+        |  |  +--rw overload?   boolean <false>
+        |  +--rw ipv6-multicast!
+        |  |  +--rw overload?   boolean <false>
+        |  +--rw ipv6-management!
+        |  |  +--rw overload?   boolean <false>
+        |  +--rw ipv6-dstsrc!
+        |     +--rw overload?   boolean <false>
+        +--rw log-adjacency-changes?           boolean <false>
+        +--rw mpls-te!
+        |  +--rw router-address?   ietf-inet-types:ipv4-address
+        +--rw segment-routing
+           +--rw enabled?          boolean <false>
+           +--rw srgb
+           |  +--rw lower-bound?   uint32 <16000>
+           |  +--rw upper-bound?   uint32 <23999>
+           +--rw msd
+           |  +--rw node-msd?   uint8
+           +--rw prefix-sid-map
+              +--rw prefix-sid* [prefix]
+                 +--rw prefix               ietf-inet-types:ip-prefix
+                 +--rw sid-value-type?      enumeration <index>
+                 +--rw sid-value            uint32
+                 +--rw last-hop-behavior?   enumeration <php>
+
+  augment /frr-interface:lib/frr-interface:interface:
+    +--rw isis!
+       +--rw area-tag                       string
+       +--rw ipv4-routing?                  boolean <false>
+       +--rw ipv6-routing?                  boolean <false>
+       +--rw circuit-type?                  level <level-1-2>
+       +--rw csnp-interval
+       |  +--rw level-1?   uint16 <10>
+       |  +--rw level-2?   uint16 <10>
+       +--rw psnp-interval
+       |  +--rw level-1?   uint16 <2>
+       |  +--rw level-2?   uint16 <2>
+       +--rw hello
+       |  +--rw padding?      boolean <true>
+       |  +--rw interval
+       |  |  +--rw level-1?   uint32 <3>
+       |  |  +--rw level-2?   uint32 <3>
+       |  +--rw multiplier
+       |     +--rw level-1?   uint16 <10>
+       |     +--rw level-2?   uint16 <10>
+       +--rw metric
+       |  +--rw level-1?   uint32 <10>
+       |  +--rw level-2?   uint32 <10>
+       +--rw priority
+       |  +--rw level-1?   uint8 <64>
+       |  +--rw level-2?   uint8 <64>
+       +--rw network-type?                  network-type <broadcast>
+       +--rw passive?                       boolean <false>
+       +--rw password!
+       |  +--rw password         string
+       |  +--rw password-type    enumeration
+       +--rw disable-three-way-handshake?   boolean <false>
+       +--rw multi-topology
+          +--rw ipv4-unicast?      boolean <true>
+          +--rw ipv4-multicast?    boolean <true>
+          +--rw ipv4-management?   boolean <true>
+          +--rw ipv6-unicast?      boolean <true>
+          +--rw ipv6-multicast?    boolean <true>
+          +--rw ipv6-management?   boolean <true>
+          +--rw ipv6-dstsrc?       boolean <true>
+
+  notifications:
+    +---n database-overload
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro overload?                enumeration
+    +---n lsp-too-large
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro pdu-size?                uint32
+    |  +--ro lsp-id?                  lsp-id
+    +---n if-state-change
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro state?                   if-state-type
+    +---n corrupted-lsp-detected
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro lsp-id?                  lsp-id
+    +---n attempt-to-exceed-max-sequence
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro lsp-id?                  lsp-id
+    +---n id-len-mismatch
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro pdu-field-len?           uint8
+    |  +--ro raw-pdu?                 binary
+    +---n max-area-addresses-mismatch
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro max-area-addresses?      uint8
+    |  +--ro raw-pdu?                 binary
+    +---n own-lsp-purge
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro lsp-id?                  lsp-id
+    +---n sequence-number-skipped
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro lsp-id?                  lsp-id
+    +---n authentication-type-failure
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro raw-pdu?                 binary
+    +---n authentication-failure
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro raw-pdu?                 binary
+    +---n version-skew
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro protocol-version?        uint8
+    |  +--ro raw-pdu?                 binary
+    +---n area-mismatch
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro raw-pdu?                 binary
+    +---n rejected-adjacency
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro raw-pdu?                 binary
+    |  +--ro reason?                  string
+    +---n lsp-error-detected
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro lsp-id?                  lsp-id
+    |  +--ro raw-pdu?                 binary
+    |  +--ro error-offset?            uint32
+    |  +--ro tlv-type?                uint8
+    +---n adjacency-state-change
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro neighbor?                string
+    |  +--ro neighbor-system-id?      system-id
+    |  +--ro state?                   adj-state-type
+    |  +--ro reason?                  string
+    +---n lsp-received
+    |  +--ro routing-instance?        string
+    |  +--ro routing-protocol-name?   string
+    |  +--ro isis-level?              level
+    |  +--ro interface-name?          string
+    |  +--ro interface-level?         level
+    |  +--ro extended-circuit-id?     uint32
+    |  +--ro lsp-id?                  lsp-id
+    |  +--ro sequence?                uint32
+    |  +--ro received-timestamp?      ietf-yang-types:timestamp
+    |  +--ro neighbor-system-id?      system-id
+    +---n lsp-generation
+       +--ro routing-instance?        string
+       +--ro routing-protocol-name?   string
+       +--ro isis-level?              level
+       +--ro lsp-id?                  lsp-id
+       +--ro sequence?                uint32
+       +--ro send-timestamp?          ietf-yang-types:timestamp
