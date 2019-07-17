@@ -43,37 +43,22 @@ routers = [
       sysctl -w net.mpls.conf.enp0s8.input=1
       sysctl -w net.mpls.conf.enp0s9.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -154,65 +139,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -293,65 +247,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -432,65 +355,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -580,93 +472,46 @@ routers = [
       sysctl -w net.mpls.conf.enp0s16.input=1
       sysctl -w net.mpls.conf.enp0s17.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s17
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s18
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s17</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s18</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -747,65 +592,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -881,37 +695,22 @@ routers = [
       sysctl -w net.mpls.conf.enp0s9.input=1
       sysctl -w net.mpls.conf.enp0s10.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 30
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>30</level-1>
-              <level-2>30</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -1002,65 +801,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -1151,65 +919,34 @@ routers = [
       sysctl -w net.mpls.conf.enp0s10.input=1
       sysctl -w net.mpls.conf.enp0s16.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s10
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s16
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s10</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s16</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
@@ -1290,37 +1027,22 @@ routers = [
       sysctl -w net.mpls.conf.enp0s8.input=1
       sysctl -w net.mpls.conf.enp0s9.input=1
 
+      cat > /etc/frr/isisd.conf <<EOF
+      interface enp0s8
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      interface enp0s9
+       ip router isis testnet
+       isis metric 60
+       isis circuit-type level-1
+       isis network point-to-point
+      !
+      EOF
+
       cat > /etc/frr/isisd.xml <<EOF
-      <lib xmlns="http://frrouting.org/yang/interface">
-        <interface>
-          <name>enp0s8</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-        <interface>
-          <name>enp0s9</name>
-          <vrf>default</vrf>
-          <isis xmlns="http://frrouting.org/yang/isisd">
-            <area-tag>testnet</area-tag>
-            <ipv4-routing>true</ipv4-routing>
-            <circuit-type>level-1</circuit-type>
-            <metric>
-              <level-1>60</level-1>
-              <level-2>60</level-2>
-            </metric>
-            <network-type>point-to-point</network-type>
-          </isis>
-        </interface>
-      </lib>
       <isis xmlns="http://frrouting.org/yang/isisd">
         <instance>
           <area-tag>testnet</area-tag>
