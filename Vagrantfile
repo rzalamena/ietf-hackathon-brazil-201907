@@ -721,6 +721,8 @@ hosts = [
       echo "127.0.1.1 $1" >> /etc/hosts
       hostname "$1"
 
+      apt install -y python3-ncclient
+
       cat > /home/vagrant/bin/network-setup.sh <<EOF
       sudo ip link add testnet type vrf table 10
 
