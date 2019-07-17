@@ -75,7 +75,11 @@ The following applications are required:
     `sudo su -`;
   * Alternatively you can log in into the routers with
     `vagrant ssh r<number>`;
+  * The router 1 network interface connected with host 1 has the MAC
+    address of: `08:00:27:60:01:03`. \
+    When playing the test traffic you should use the following command:
 
+        sudo tcpreplay-edit -i enp0s8 --enet-dmac 08:00:27:60:01:03 TestTraffic.pcap
 
 ## Topology
 

@@ -730,11 +730,19 @@ Vagrant.configure('2') do |config|
   # Configure all routers.
   routers.each do |router|
     config.vm.define router[:hostname] do |node|
+      router_number = router[:hostname].match(/r(\d+)/)[1]
+      if router_number.length == 1
+        router_number = "0" + router_number
+      end
+      interface_number = 1
+
       # Configure network interfaces.
       router[:interfaces].each do |interface|
         node.vm.network :private_network,
           ip: interface[:address],
-          virtualbox__intnet: interface[:net]
+          virtualbox__intnet: interface[:net],
+          mac: "08002760#{router_number}0#{interface_number}"
+        interface_number += 1
       end
 
       # Virtual Box settings.
