@@ -7,7 +7,7 @@ Table of Contents:
   * [Usage](#usage)
   * [Notes](#notes)
   * [Topology](#topology)
-  * [troubleshooting](#troubleshooting)
+  * [Troubleshooting](#troubleshooting)
 
 
 ## Hardware Requirements
@@ -26,16 +26,16 @@ The minimal hardware specification in order to run the topology:
 
 The virtualization software is portable and should run on a few OSes:
 
-  * Linux;
-  * Windows; PowerShell 3 or later
-  * FreeBSD;
-  * Mac OS X;
-  * Solaris;
+  * Linux
+  * Windows PowerShell 3 or later
+  * FreeBSD
+  * Mac OS X
+  * Solaris
 
 The following applications are required:
 
-  * Vagrant: https://www.vagrantup.com/downloads.html ;
-  * VirtualBox: https://www.virtualbox.org/wiki/Downloads ;
+  * Vagrant: https://www.vagrantup.com/downloads.html
+  * VirtualBox: https://www.virtualbox.org/wiki/Downloads
 
 
 ## Usage
