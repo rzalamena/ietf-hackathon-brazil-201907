@@ -24,6 +24,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -32,14 +33,23 @@ routers = [
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
 
+      ip rule add pref 101 from 10.100.2.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10001
+      ip route add default via 10.2.1.20 encap mpls 500 table 10001
+      ip rule add pref 102 from 10.100.3.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10002
+      ip route add default via 10.2.1.20 encap mpls 500/600 table 10002
+      ip rule add pref 103 from 10.100.4.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10003
+      ip route add default via 10.2.1.20 encap mpls 500/600/700/500/600/700 table 10003
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -53,6 +63,19 @@ routers = [
       interface lo
        ip address 10.254.254.1/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -86,6 +109,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -97,21 +121,25 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -125,6 +153,19 @@ routers = [
       interface lo
        ip address 10.254.254.2/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -158,6 +199,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -169,21 +211,25 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -197,6 +243,19 @@ routers = [
       interface lo
        ip address 10.254.254.3/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -230,6 +289,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -241,21 +301,25 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -269,6 +333,19 @@ routers = [
       interface lo
        ip address 10.254.254.4/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -310,6 +387,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -321,31 +399,37 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s17
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s18
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -359,6 +443,19 @@ routers = [
       interface lo
        ip address 10.254.254.5/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -392,6 +489,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -403,21 +501,25 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
@@ -431,6 +533,19 @@ routers = [
       interface lo
        ip address 10.254.254.6/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -460,6 +575,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -471,17 +587,20 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 100
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.1000.00
        redistribute ipv4 connected level-1
+       redistribute ipv4 static level-1
       !
       EOF
 
@@ -489,6 +608,21 @@ routers = [
       interface lo
        ip address 10.254.254.7/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      ip route 10.119.0.0/16 172.16.7.20
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -526,6 +660,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -537,27 +672,32 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.2000.00
        redistribute ipv4 connected level-1
+       redistribute ipv4 static level-1
       !
       EOF
 
@@ -565,6 +705,21 @@ routers = [
       interface lo
        ip address 10.254.254.8/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      ip route 10.119.0.0/16 172.16.8.20
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -602,6 +757,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -613,27 +769,32 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s10
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s16
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.3000.00
        redistribute ipv4 connected level-1
+       redistribute ipv4 static level-1
       !
       EOF
 
@@ -641,6 +802,21 @@ routers = [
       interface lo
        ip address 10.254.254.9/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      ip route 10.119.0.0/16 172.16.9.20
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
@@ -670,6 +846,7 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+      echo "hostname $1" > /etc/frr/staticd.conf
 
       chpasswd <<EOF
       root:vagrant
@@ -681,17 +858,20 @@ routers = [
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       interface enp0s9
        ip router isis testnet
+       isis metric 200
        isis circuit-type level-1
        isis network point-to-point
       !
       router isis testnet
        net 10.0000.0000.0000.0000.0000.0000.0000.0000.4000.00
        redistribute ipv4 connected level-1
+       redistribute ipv4 static level-1
       !
       EOF
 
@@ -699,6 +879,21 @@ routers = [
       interface lo
        ip address 10.254.254.10/32
       !
+      EOF
+
+      cat >> /etc/frr/staticd.conf <<EOF
+      !
+      ip route 10.119.0.0/16 172.16.10.20
+      !
+      EOF
+
+      cat >> /etc/frr/daemons <<EOF
+      watchfrr_enable=yes
+      zebra=yes
+      isisd=yes
+      staticd=yes
+
+      isisd_options="  --daemon -A 127.0.0.1 -M sysrepo"
       EOF
 
       systemctl restart frr
