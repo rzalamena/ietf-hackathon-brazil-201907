@@ -44,7 +44,7 @@ The following applications are required:
   2. Install Vagrant (use the site installer even on Linux);
   3. Set up a new 'exercise' folder for all the download files;
   4. Download the vagrant box file for the IETF hackathon exercise
-      from http://br-hackathon.netdef.org/ietf-hackathon-br-201907.box
+     from http://br-hackathon.netdef.org/ietf-hackathon-br-201907.box
   5. Download or clone the IETF hackathon exercise repository (where
      this file is located) to the same exercise folder;
   6. Deploy the topology with vagrant:
@@ -80,6 +80,9 @@ The following applications are required:
     When playing the test traffic you should use the following command:
 
         sudo tcpreplay-edit -i enp0s8 --enet-dmac 08:00:27:60:01:03 TestTraffic.pcap
+
+  * The test traffic can be found in the following address:
+    http://br-hackathon.netdef.org/TestTraffic.pcap.gz
 
 ## Topology
 
