@@ -34,11 +34,14 @@ routers = [
       systemctl restart sshd
 
       ip rule add pref 101 from 10.100.2.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10001
-      ip route add default via 10.2.1.20 encap mpls 500 table 10001
+      ip route add default via 10.1.2.20 encap mpls 500 table 10001
       ip rule add pref 102 from 10.100.3.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10002
-      ip route add default via 10.2.1.20 encap mpls 500/600 table 10002
+      ip route add default via 10.1.2.20 encap mpls 500/600 table 10002
       ip rule add pref 103 from 10.100.4.1/32 to 10.129.0.0/16 iif enp0s10 lookup 10003
-      ip route add default via 10.2.1.20 encap mpls 500/600/700/500/600/700 table 10003
+      ip route add default via 10.1.2.20 encap mpls 500/600/700/500/600/700 table 10003
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -117,6 +120,11 @@ routers = [
 
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -208,6 +216,11 @@ routers = [
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
 
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -297,6 +310,11 @@ routers = [
 
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -395,6 +413,12 @@ routers = [
 
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
+      sysctl -w net.mpls.conf.enp0s17.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -498,6 +522,11 @@ routers = [
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
 
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -584,6 +613,10 @@ routers = [
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
 
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -668,6 +701,11 @@ routers = [
 
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -766,6 +804,11 @@ routers = [
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
 
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
+      sysctl -w net.mpls.conf.enp0s10.input=1
+      sysctl -w net.mpls.conf.enp0s16.input=1
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -854,6 +897,9 @@ routers = [
 
       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
       systemctl restart sshd
+
+      sysctl -w net.mpls.conf.enp0s8.input=1
+      sysctl -w net.mpls.conf.enp0s9.input=1
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
