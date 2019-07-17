@@ -25,6 +25,13 @@ routers = [
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
 
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -79,6 +86,13 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -145,6 +159,13 @@ routers = [
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
 
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -209,6 +230,13 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -282,6 +310,13 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -358,6 +393,13 @@ routers = [
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
 
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -419,6 +461,13 @@ routers = [
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
 
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -477,6 +526,13 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
@@ -547,6 +603,13 @@ routers = [
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
 
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
+
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
        ip router isis testnet
@@ -607,6 +670,13 @@ routers = [
       hostname "$1"
       echo "hostname $1" > /etc/frr/vtysh.conf
       echo "hostname $1" > /etc/frr/zebra.conf
+
+      chpasswd <<EOF
+      root:vagrant
+      EOF
+
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      systemctl restart sshd
 
       cat > /etc/frr/isisd.conf <<EOF
       interface enp0s8
